@@ -1,38 +1,255 @@
+@import "~antd/dist/antd.css";
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  max-width: 450px;
+  height: 100vh;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: linear-gradient(
+    282.14deg,
+    #2d55a0 0%,
+    #2d55a0 0.01%,
+    rgba(45, 85, 160, 0.85) 100%
+  );
 }
 
-.App-link {
-  color: #61dafb;
+.loading {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  visibility: hidden;
+  opacity: 0;
+  transition: visible 1s, opacity 1s;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
-@keyframes App-logo-spin {
+.loading.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+@keyframes spinning {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+.loading img {
+  animation: spinning 5s linear forwards infinite;
+}
+
+.btn {
+  padding: 7.5px 10px;
+  border-radius: 8px;
+}
+
+.blue-text-btn {
+  background-color: #fff;
+  color: #2d55a0;
+  border: 1px solid #2d55a0;
+}
+
+.white-text-btn {
+  background-color: #2d55a0;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+header {
+  color: #fff;
+  padding: 20px;
+  width: 100%;
+  height: 170px;
+  /* height: 20%; */
+}
+
+h1 {
+  margin: 0 0 15px 0;
+  color: #fff !important;
+  font-size: 24px;
+}
+
+.header-content,
+.statistics-area {
+  height: 67px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.statistics {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 25px;
+}
+
+.header-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color: #2d55a0;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  font-size: 22px;
+  line-height: 0.8;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+/* .header-btn {
+  font-size: 18px;
+  line-height: 1;
+  width: 80px;
+  height: 40px;
+} */
+
+.header-btn {
+  width: 80px;
+  height: 40px;
+  padding: 0;
+}
+
+.header-btn a {
+  font-size: 18px;
+  line-height: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-btn span {
+  display: block;
+  margin-right: 5px;
+}
+
+main {
+  border-top-left-radius: 28px;
+  background-color: #fff;
+  width: 100%;
+  /* height: 80%; */
+  height: calc(100% - 170px);
+}
+
+.home {
+  height: 100%;
+  overflow: scroll;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 15px 0 15px 15px;
+}
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 30px);
+  padding: 5px 15px;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.075);
+  margin: 0px 15px 20px 15px;
+  border-radius: 12px;
+}
+
+.taskItem:hover {
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+.taskItem * {
+  margin: 0;
+}
+
+.taskContent {
+  flex-grow: 1;
+  margin-right: 15px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+h4 {
+  font-size: 14px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.taskItem button {
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color: #2d55a0;
+  border: none;
+  border: 1px solid #2d55a0;
+  border-radius: 12px;
+  margin-left: 10px;
+}
+
+.form-item {
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-item label {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.form-item input {
+  display: block;
+  width: 80%;
+  font-size: 16px;
+}
+
+.form-item input[type="text"] {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.form-item input[type="text"]:focus-visible {
+  outline: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+}
+
+.confirm-btn {
+  display: block;
+  margin: 15px;
+  font-size: 16px;
+}
+
+.modalContent {
+  margin: 0;
+}
+
+@media screen and (min-width: 360px) {
+  h1 {
+    font-size: 28px;
+  }
+  .statistics {
+    margin-right: 25px;
   }
 }
